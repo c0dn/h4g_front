@@ -5,10 +5,11 @@ import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import {createRoot} from "react-dom/client";
 import './index.css'
 import Home from "./pages/Home.tsx";
-import Login from "./pages/Login.tsx";
-import WebNav from "./pages/WebNav.tsx";
-import MobNav from "./pages/MobNav.tsx";
-import { SidebarLayout } from './components/sidebar-layout'
+import Login from "./pages/auth/Login.tsx";
+import DashboardRoot from "./pages/DashboardRoot.tsx";
+import Product from "./pages/Product.tsx";
+import DashboardHome from "./pages/dashboard/DashboardHome.tsx";
+import Products from "./pages/Products.tsx";
 
 const queryClient = new QueryClient()
 
@@ -18,12 +19,7 @@ const Root = () => {
         <QueryClientProvider client={queryClient}>
             <AuthContextProvider>
                 <main>
-                    <SidebarLayout
-                        sidebar={<WebNav/>}
-                        navbar={<MobNav/>}
-                        >
-                        <Outlet/>
-                    </SidebarLayout>
+                    <Outlet/>
                 </main>
                 <ReactQueryDevtools initialIsOpen={false}/>
             </AuthContextProvider>
@@ -45,21 +41,25 @@ const router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login/>
-            }
-            // {
-            //     path: "service/:uuid",
-            //     element: <ServiceRoot/>,
-            //     children: [
-            //         {
-            //             path: "",
-            //             element: <ServiceDetail/>
-            //         },
-            //         {
-            //             path: "mfa",
-            //             element: <ServiceMFA/>
-            //         }
-            //     ]
-            // },
+            },
+            {
+                path: "app",
+                element: <DashboardRoot/>,
+                children: [
+                    {
+                      path: "",
+                      element: <DashboardHome/>
+                    },
+                    {
+                        path: "product",
+                        element: <Product/>
+                    },
+                    {
+                        path: "products",
+                        element: <Products/>
+                    },
+                ]
+            },
         ],
     },
 ]);
