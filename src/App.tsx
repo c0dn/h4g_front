@@ -6,6 +6,9 @@ import {createRoot} from "react-dom/client";
 import './index.css'
 import Home from "./pages/Home.tsx";
 import Login from "./pages/Login.tsx";
+import WebNav from "./pages/WebNav.tsx";
+import MobNav from "./pages/MobNav.tsx";
+import { SidebarLayout } from './components/sidebar-layout'
 
 const queryClient = new QueryClient()
 
@@ -15,7 +18,12 @@ const Root = () => {
         <QueryClientProvider client={queryClient}>
             <AuthContextProvider>
                 <main>
-                    <Outlet/>
+                    <SidebarLayout
+                        sidebar={<WebNav/>}
+                        navbar={<MobNav/>}
+                        >
+                        <Outlet/>
+                    </SidebarLayout>
                 </main>
                 <ReactQueryDevtools initialIsOpen={false}/>
             </AuthContextProvider>
