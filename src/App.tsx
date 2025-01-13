@@ -5,6 +5,7 @@ import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import {createRoot} from "react-dom/client";
 import './index.css'
 import Home from "./pages/Home.tsx";
+import Login from "./pages/Login.tsx";
 
 const queryClient = new QueryClient()
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
                 path: "",
                 element: <Home/>
             },
+            {
+                path: "login",
+                element: <Login/>
+            }
             // {
             //     path: "service/:uuid",
             //     element: <ServiceRoot/>,
