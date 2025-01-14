@@ -1,8 +1,10 @@
+import { Heading } from '../components/heading'
+
 export default function Checkout() {
 
     return (
         <div>
-            <h1 className="font-bold text-white">Checkout - Confirm</h1>
+            <Heading>Checkout - Confirm</Heading>
         </div>
     );
 

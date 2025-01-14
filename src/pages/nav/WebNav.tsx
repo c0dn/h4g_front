@@ -50,6 +50,7 @@ export default function Navbar() {
             </SidebarItem>
           </SidebarHeader>
           <SidebarBody>
+            {/* Main Navigations */}
             <SidebarSection>
               <SidebarItem href="/app">
                 <HomeIcon />

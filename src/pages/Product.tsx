@@ -1,8 +1,10 @@
+import { Heading } from '../components/heading'
+
 export default function Product() {
 
     return (
         <div>
-            <h1 className="font-bold text-white">Product page</h1>
+            <Heading>Product page</Heading>
         </div>
     );
 

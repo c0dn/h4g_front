@@ -1,8 +1,10 @@
+import { Heading } from '../components/heading'
+
 export default function Orders() {
 
     return (
         <div>
-            <h1 className="font-bold text-white">Orders</h1>
+            <Heading>Orders</Heading>
         </div>
     );
 
