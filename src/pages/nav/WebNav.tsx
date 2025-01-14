@@ -45,10 +45,9 @@ export default function Navbar() {
         <Sidebar>
           <SidebarHeader>
             <SidebarItem>
-                {/* <Avatar src="/src/img/logo.png" /> */}
+                <Avatar src="/src/img/logo.png" />
                 <SidebarLabel>MWH-Minimart</SidebarLabel>
             </SidebarItem>
-            <DropdownDivider />
           </SidebarHeader>
           <SidebarBody>
             <SidebarSection>
@@ -103,8 +102,8 @@ export default function Navbar() {
                 <span className="flex min-w-0 items-center gap-3">
                   <Avatar src="/src/img/profile-photo.jpg" className="size-10" square alt="" />
                   <span className="min-w-0">
-                    <span className="block truncate text-sm/5 font-medium text-zinc-950 dark:text-white">John Tan</span>
-                    <span className="block truncate text-xs/5 font-normal text-zinc-500 dark:text-zinc-400">
+                    <span className="block truncate text-sm/5 font-medium text-zinc-950">John Tan</span>
+                    <span className="block truncate text-xs/5 font-normal text-zinc-500">
                       john@example.com
                     </span>
                   </span>
