@@ -2,7 +2,7 @@ export default function Product() {
 
     return (
         <div>
-            <h1 className="font-bold text-red-500">Product page</h1>
+            <h1 className="font-bold text-white">Product page</h1>
         </div>
     );
 

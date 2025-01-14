@@ -1,5 +1,5 @@
-import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from '../components/navbar'
-import { Avatar } from '../components/avatar'
+import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from '../../components/navbar'
+import { Avatar } from '../../components/avatar'
 import {
   Dropdown,
   DropdownButton,
@@ -7,7 +7,7 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from '../components/dropdown'
+} from '../../components/dropdown'
 import {
     ArrowRightStartOnRectangleIcon,
     Cog8ToothIcon,
