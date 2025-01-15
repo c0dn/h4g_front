@@ -3,7 +3,6 @@ import {
   SidebarBody,
   SidebarFooter,
   SidebarHeader,
-  SidebarHeading,
   SidebarItem,
   SidebarLabel,
   SidebarSection,
@@ -38,8 +37,11 @@ import {
   HomeIcon,
   QuestionMarkCircleIcon,
 } from '@heroicons/react/20/solid'
+import {useAuth} from "../../hooks/useAuth.ts";
 
 export default function Navbar() {
+
+  const {user} = useAuth();
 
   return (
     <Sidebar>
@@ -103,9 +105,9 @@ export default function Navbar() {
             <span className="flex min-w-0 items-center gap-3">
               <Avatar src="/src/img/profile-photo.jpg" className="size-10" square alt="" />
               <span className="min-w-0">
-                <span className="block truncate text-sm/5 font-medium text-zinc-950">John Tan</span>
+                <span className="block truncate text-sm/5 font-medium text-zinc-950">{user?.name}</span>
                 <span className="block truncate text-xs/5 font-normal text-zinc-500">
-                  john@example.com
+                  {user?.email}
                 </span>
               </span>
             </span>

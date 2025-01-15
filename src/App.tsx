@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import { AuthContextProvider } from "./UserContext.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -19,6 +19,7 @@ import Support from "./pages/Support.tsx";
 import Profile from "./pages/Profile.tsx";
 import ChangePassword from "./pages/ChangePassword.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
+import IndexPage from "./pages/IndexPage.tsx";
 
 const queryClient = new QueryClient()
 
@@ -44,8 +45,12 @@ const router = createBrowserRouter([
         element: <Root />,
         children: [
             {
+                path: "",
+                element: <IndexPage/>
+            },
+            {
                 path: "login",
-                element: <Login />
+                element: <Login />,
             },
             {
                 path: "change_password",
@@ -80,7 +85,7 @@ const router = createBrowserRouter([
                         element: <Orders />
                     },
                     {
-                        path: "Users",
+                        path: "users",
                         element: <Users />
                     },
                     {
