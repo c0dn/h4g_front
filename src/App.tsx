@@ -7,6 +7,7 @@ import './index.css'
 import Login from "./pages/Login.tsx";
 import DashboardRoot from "./pages/DashboardRoot.tsx";
 import DashboardHome from "./pages/DashboardHome.tsx";
+import Minimart from "./pages/Minimart.tsx";
 import Products from "./pages/Products.tsx";
 import Product from "./pages/Product.tsx";
 import Cart from "./pages/Cart.tsx";
@@ -16,6 +17,8 @@ import Users from "./pages/Users.tsx";
 import Auction from "./pages/Auction.tsx";
 import Support from "./pages/Support.tsx";
 import Profile from "./pages/Profile.tsx";
+import ChangePassword from "./pages/ChangePassword.tsx";
+import ResetPassword from "./pages/ResetPassword.tsx";
 
 const queryClient = new QueryClient()
 
@@ -45,12 +48,24 @@ const router = createBrowserRouter([
                 element: <Login />
             },
             {
+                path: "change_password",
+                element: <ChangePassword />
+            },
+            {
+                path: "forgot_password",
+                element: <ResetPassword />
+            },
+            {
                 path: "app",
                 element: <DashboardRoot />,
                 children: [
                     {
                         path: "",
                         element: <DashboardHome />
+                    },
+                    {
+                        path: "minimart",
+                        element: <Minimart />
                     },
                     {
                         path: "products",
@@ -83,6 +98,10 @@ const router = createBrowserRouter([
                     {
                         path: "support",
                         element: <Support />
+                    },
+                    {
+                        path: "profile",
+                        element: <Profile />
                     },
                     {
                         path: "profile",
