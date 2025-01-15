@@ -96,6 +96,12 @@ export default function Products() {
                                     scope="col"
                                     className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                                 >
+                                    Description
+                                </th>
+                                <th
+                                    scope="col"
+                                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                                >
                                     Price
                                 </th>
                                 <th
@@ -117,6 +123,7 @@ export default function Products() {
                                         <div className="absolute bottom-0 right-full h-px w-screen bg-gray-100" />
                                         <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />
                                     </td>
+                                    <td className="px-3 py-4 text-sm text-gray-500">{product.description}</td>
                                     <td className="px-3 py-4 text-sm text-gray-500">{product.price}</td>
                                     <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{product.stock}</td>
                                     <td className="relative py-4 pl-3 text-right text-sm font-medium">
