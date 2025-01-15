@@ -1,7 +1,7 @@
-import React, {createContext, FC, useCallback, useEffect, useState} from "react";
+import React, { createContext, FC, useCallback, useEffect, useState } from "react";
 import axios from "axios";
-import {baseAxiosClient} from "./libs/requestClient.ts";
-import {useNavigate} from "react-router-dom";
+import { baseAxiosClient } from "./libs/requestClient.ts";
+import { useNavigate } from "react-router-dom";
 
 interface AuthContext {
     user: RedactedUser | null;
@@ -36,7 +36,7 @@ if (!API_SERVER) {
 }
 
 
-export const AuthContextProvider: FC<Props> = ({children}) => {
+export const AuthContextProvider: FC<Props> = ({ children }) => {
     const [user, setUser] = useState<RedactedUser | null>(null);
     const [currentAccessToken, setCurrentAccessToken] = useState<string | null>(null);
     const [currentRefreshToken, setCurrentRefreshToken] = useState<string | null>(null);
@@ -84,7 +84,7 @@ export const AuthContextProvider: FC<Props> = ({children}) => {
                         if (isRefreshing) {
                             try {
                                 const token = await new Promise((resolve, reject) => {
-                                    failedQueue.push({resolve, reject});
+                                    failedQueue.push({ resolve, reject });
                                 });
                                 originalRequest.headers.Authorization = `Bearer ${token}`;
                                 return await baseAxiosClient(originalRequest);
@@ -107,7 +107,7 @@ export const AuthContextProvider: FC<Props> = ({children}) => {
 
                         try {
                             try {
-                                const {data} = await localAxiosClient.post('/auth/refresh');
+                                const { data } = await localAxiosClient.post('/auth/refresh');
                                 setTokens(data.access_token, data.refresh_token);
                                 processQueue(null, data.access_token);
                                 originalRequest.headers.Authorization = `Bearer ${data.access_token}`;
@@ -141,7 +141,7 @@ export const AuthContextProvider: FC<Props> = ({children}) => {
                 withCredentials: true
             });
             const r = await localAxiosClient.post('/auth/refresh')
-            const {access_token, refresh_token}: NewTokens = r.data
+            const { access_token, refresh_token }: NewTokens = r.data
             return new Promise((resolve) => {
                 setTokens(access_token, refresh_token);
                 setTimeout(resolve, 0);

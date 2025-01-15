@@ -8,7 +8,7 @@ import { TouchTarget } from './button'
 import { Link } from './link'
 
 export function Sidebar({ className, ...props }: React.ComponentPropsWithoutRef<'nav'>) {
-  return <nav {...props} className={clsx(className, 'flex h-full min-h-0 flex-col')} />
+  return <nav {...props} className={clsx(className, 'flex h-full min-h-0 flex-col bg-zinc-50')} />
 }
 
 export function SidebarHeader({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
@@ -67,7 +67,7 @@ export function SidebarSpacer({ className, ...props }: React.ComponentPropsWitho
 
 export function SidebarHeading({ className, ...props }: React.ComponentPropsWithoutRef<'h3'>) {
   return (
-    <h3 {...props} className={clsx(className, 'mb-1 px-2 text-xs/6 font-medium text-zinc-500')} />
+    <h3 {...props} className={clsx(className, 'mb-1 px-2 text-base font-medium text-zinc-500')} />
   )
 }
 
@@ -86,6 +86,8 @@ export const SidebarItem = forwardRef(function SidebarItem(
   let classes = clsx(
     // Base
     'flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-zinc-950 sm:py-2 sm:text-sm/5',
+    // Font size
+    'text-xl sm:text-base',
     // Leading icon/icon-only
     'data-[slot=icon]:*:size-6 data-[slot=icon]:*:shrink-0 data-[slot=icon]:*:fill-zinc-500 sm:data-[slot=icon]:*:size-5',
     // Trailing icon (down chevron or similar)
@@ -98,6 +100,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
     'data-[active]:bg-zinc-950/5 data-[slot=icon]:*:data-[active]:fill-zinc-950',
     // Current
     'data-[slot=icon]:*:data-[current]:fill-zinc-950',
+    'mb-2'
   )
 
   return (
@@ -133,5 +136,5 @@ export const SidebarItem = forwardRef(function SidebarItem(
 })
 
 export function SidebarLabel({ className, ...props }: React.ComponentPropsWithoutRef<'span'>) {
-  return <span {...props} className={clsx(className, 'truncate')} />
+  return <span {...props} className={clsx(className, 'text-base truncate')} />
 }
