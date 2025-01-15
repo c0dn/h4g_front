@@ -67,7 +67,7 @@ const products = [
 export default function Products() {
     return (
         <div>
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl">
                 <div className="sm:flex sm:items-center">
                     <div className="sm:flex-auto">
                         <Heading>Products</Heading>
@@ -83,7 +83,7 @@ export default function Products() {
                 </div>
             </div>
             <div className="mt-8 flow-root overflow-hidden">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
                     <table className="w-full text-left">
                         <thead className="bg-white">
                             <tr>
