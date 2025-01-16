@@ -16,59 +16,54 @@ const users = [
 
 export default function Users() {
   return (
-    <div className="px-2 sm:px-4 lg:px-2">
+    <div>
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto lg:px-4">
           <Heading>Users</Heading>
+        </div>
+        <div className="flex w-full justify-end items-center px-4 py-2">
+          <div className="flex relative w-1/5 bg-gray-100 rounded-lg mr-2">
+            <input
+              type="text"
+              placeholder="Search user..."
+              className="w-full bg-transparent py-2 pl-10 text-medium font-normal text-gray-900 focus:outline-none"
+            />
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute -left-0.5 top-1/2 transform -translate-y-1/2 h-5 w-5 ml-2 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-4.35-4.35m1.9-6.15a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <Button
+              color="blue"
+              className="rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              href=""
+            >
+              Add User...
+            </Button>
+          </div>
+
         </div>
       </div>
       <div className="mt-6 flow-root">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-1 align-middle sm:px-6 lg:px-8">
-            <table className="min-w-full border">
-              <thead>
-                <tr>
-                  <th colSpan="6" className="px-4 py-2">
-                    <div className="flex w-full items-center justify-between">
-                      <div className="flex relative w-4/5">
-                        <input
-                          type="text"
-                          placeholder="Search user..."
-                          className="w-full bg-transparent py-2 pl-10 text-medium font-normal text-gray-900 focus:outline-none"
-                        />
-                        <button>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="absolute -left-0.5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M21 21l-4.35-4.35m1.9-6.15a7 7 0 11-14 0 7 7 0 0114 0z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-
-                      {/* Add User Button */}
-                      <Button
-                        color="blue"
-                        className="rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                        href=""
-                      >
-                        Add User...
-                      </Button>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
+            <table className="min-w-full">
               <div className="mb-2">
               </div>
-              <thead className="border border-t-0">
+              <thead className="border border-t-0 border-x-0">
                 <tr>
                   <th scope="col" className="py-3 lg:px-4 text-left text-medium font-semibold text-gray-900">
                     Resident ID
