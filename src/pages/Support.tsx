@@ -1,11 +1,12 @@
 import websiteIcon from '../img/website-icon.png'; // Import your local image
+
 export default function Support() {
     return  (
-      <div className="bg-white py-30 sm:py-36"> {/* Reduced padding */}
+      <div className="bg-white py-20"> {/* Reduced padding */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-              <div className="-mt-12"> {/* Negative margin to move up */}
+              <div className="mt-2"> {/* Negative margin to move up */}
                 <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900">
                   Contact Us
               </h2>

@@ -176,7 +176,7 @@ export const AuthContextProvider: FC<Props> = ({ children }) => {
             if (typeof window === 'object') {
                 if (storedUser) setUserInfo(storedUser);
                 if (!storedRefreshToken && !storedAccessToken) {
-                    navigate("/app/users")
+                    navigate("/app/manage_orders")
                 } else if (!storedAccessToken) {
                     if (isFirstMount) {
                         navigate("/login")

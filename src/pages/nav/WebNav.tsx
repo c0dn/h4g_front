@@ -19,10 +19,12 @@ import {
   DropdownMenu,
 } from '../../components/dropdown'
 import {
+  ArchiveBoxIcon,
   ArrowRightStartOnRectangleIcon,
   BuildingStorefrontIcon,
   ChevronUpIcon,
   ClipboardDocumentCheckIcon,
+  ClipboardDocumentIcon,
   Cog8ToothIcon,
   InboxIcon,
   LightBulbIcon,
@@ -64,10 +66,14 @@ export default function Navbar() {
             <ClipboardDocumentCheckIcon />
             <SidebarLabel>Orders</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/app/cart">
+          <SidebarItem href="/app/missions">
+            <ClipboardDocumentIcon/>
+            <SidebarLabel>Missions</SidebarLabel>
+          </SidebarItem>
+          {/* <SidebarItem href="/app/cart">
             <ShoppingCartIcon />
             <SidebarLabel>Cart</SidebarLabel>
-          </SidebarItem>
+          </SidebarItem> */}
           {/* <SidebarItem href="/app/auction">
             <BuildingStorefrontIcon />
             <SidebarLabel>Auction</SidebarLabel>
@@ -77,10 +83,11 @@ export default function Navbar() {
             <SidebarLabel>Users</SidebarLabel>
           </SidebarItem>
           <SidebarItem href="/app/products">
-            <RectangleStackIcon />
+            <ArchiveBoxIcon />
             <SidebarLabel>Products</SidebarLabel>
           </SidebarItem>
         </SidebarSection>
+
         {/* Recent News */}
         {/* <SidebarSection className="max-lg:hidden">
           <SidebarHeading>Recent News</SidebarHeading>
