@@ -2,16 +2,16 @@ export default function Login() {
   return (
     <>
       <div className="flex min-h-full flex-1 h-screen">
-        <div className="flex flex-1 flex-col px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div className="flex flex-1 flex-col px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="flex flex-col items-center mt-20">
             <img
               alt="Muhammadiyah Welfare Home"
               src="/src/img/logo2.png"
-              className="h-25 w-auto mx-auto"
+              className="h-35 w-auto mx-auto"
             />
           </div>
-          <div className="mt-10 mx-auto w-full h-full max-w-sm lg:w-96">
-            <h2 className="mb-10 text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+          <div className="mt-5 mx-auto w-full h-full max-w-sm lg:w-96">
+            <h2 className="mb-5 text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
             <div>
               <form action="#" method="POST" className="space-y-6">
                 <div>

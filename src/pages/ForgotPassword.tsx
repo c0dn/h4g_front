@@ -1,4 +1,4 @@
-export default function ChnagePassword() {
+export default function ForgotPassword() {
   return (
     <>
       <div className="flex min-h-full flex-1 h-screen">
@@ -6,9 +6,11 @@ export default function ChnagePassword() {
           <div className="flex mt-5 h-full flex-col justify-center px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <h2 className="text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-                Change Password
+                Forgot Password
               </h2>
-
+              <p className="text-center text-sm/6 text-gray-500 hover:text-gray-700">
+                No worries, we'll send you the reset instructions.
+              </p>
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

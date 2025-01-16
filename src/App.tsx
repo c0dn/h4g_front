@@ -9,15 +9,13 @@ import DashboardRoot from "./pages/DashboardRoot.tsx";
 import DashboardHome from "./pages/DashboardHome.tsx";
 import Minimart from "./pages/Minimart.tsx";
 import Products from "./pages/Products.tsx";
-import Product from "./pages/Product.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import Orders from "./pages/Orders.tsx";
 import Users from "./pages/Users.tsx";
-import Auction from "./pages/Auction.tsx";
 import Support from "./pages/Support.tsx";
 import Profile from "./pages/Profile.tsx";
 import ChangePassword from "./pages/ChangePassword.tsx";
-import ResetPassword from "./pages/ResetPassword.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
 import ManageOrders from "./pages/ManageOrders.tsx";
 import Missions from "./pages/Missions.tsx";
 import Cart from "./pages/Cart.tsx";
@@ -55,7 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "forgot_password",
-                element: <ResetPassword />
+                element: <ForgotPassword />
             },
             {
                 path: "app",
