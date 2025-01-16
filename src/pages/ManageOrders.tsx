@@ -1,19 +1,13 @@
 import { Heading } from '../components/heading'
 import { Divider } from '../components/divider'
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from '@headlessui/react'
-import { EllipsisVerticalIcon } from '@heroicons/react/24/outline'
 
 const orders = [
   {
     number: 'WU88191111',
     datetime: '2021-01-22',
     total: '$104.00',
-    user: 'John Doe', // Added user
+    user: 'John Doe',
+    status: 'Approved', // Added status
     products: [
       {
         id: 1,
@@ -35,7 +29,8 @@ const orders = [
     number: 'WU88192222',
     datetime: '2021-02-15',
     total: '$130.00',
-    user: 'Jane Smith', // Added user
+    user: 'Jane Smith',
+    status: 'Rejected', // Added status
     products: [
       {
         id: 3,
@@ -57,7 +52,8 @@ const orders = [
     number: 'WU88193333',
     datetime: '2021-03-10',
     total: '$95.00',
-    user: 'Alice Johnson', // Added user
+    user: 'Alice Johnson',
+    status: 'Waiting for Approval', // Added status
     products: [
       {
         id: 5,
@@ -72,6 +68,29 @@ const orders = [
         price: '$40.00',
         imageSrc: '/src/img/bottle.jpeg',
         description: "High-quality wireless earbuds that provide excellent sound and a comfortable fit for all-day use."
+      },
+    ],
+  },
+  {
+    number: 'WU88194444',
+    datetime: '2021-04-05',
+    total: '$85.00',
+    user: 'Michael Lee',
+    status: 'Waiting for Approval', // Added status
+    products: [
+      {
+        id: 7,
+        name: "Smart Fitness Tracker Watch",
+        price: '$45.00',
+        imageSrc: '/src/img/bottle.jpeg',
+        description: "A smart fitness tracker watch with health monitoring and activity tracking features."
+      },
+      {
+        id: 8,
+        name: "Adjustable Dumbbells Set",
+        price: '$40.00',
+        imageSrc: '/src/img/bottle.jpeg',
+        description: "A set of adjustable dumbbells perfect for strength training and home workouts."
       },
     ],
   },
@@ -114,18 +133,31 @@ export default function ManageOrders() {
                     </dl>
 
                     <div className="hidden lg:col-span-2 lg:flex lg:items-center lg:justify-end lg:space-x-4">
-                      <button
-                        type="button"
-                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                      >
-                        Approve
-                      </button>
-                      <button
-                        type="button"
-                        className="inline-flex items-center px-3 py-2 ml-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                      >
-                        Reject
-                      </button>
+                      {order.status === "Waiting for Approval" ? (
+                        <>
+                          <button
+                            type="button"
+                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                          >
+                            Approve
+                          </button>
+                          <button
+                            type="button"
+                            className="inline-flex items-center px-3 py-2 ml-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                          >
+                            Reject
+                          </button>
+                        </>
+                      ) : (
+                        <span
+                          className={`inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm ${order.status === "Approved"
+                              ? "text-white bg-green-400"
+                              : "text-white bg-red-400"
+                            }`}
+                        >
+                          {order.status}
+                        </span>
+                      )}
                     </div>
                   </div>
 

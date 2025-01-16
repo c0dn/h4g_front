@@ -92,25 +92,25 @@ export default function Users() {
                     key={user.email}
                     className={index % 2 === 0 ? "bg-white" : "bg-zinc-50"}
                   >
-                    <td className="whitespace-nowrap py-4 text-sm lg:px-4 text-gray-900">{user.residentId}</td>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-0">
+                    <td className="whitespace-nowrap py-2 text-sm lg:px-4 text-gray-900">{user.residentId}</td>
+                    <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm sm:pl-0">
                       <div className="flex items-center">
                         <div className="size-11 shrink-0">
                           <img alt="" src={user.image} className="size-11 rounded-full" />
                         </div>
                         <div className="ml-4">
                           <div className="font-medium text-gray-900">{user.name}</div>
-                          <div className="mt-1 text-gray-600">{user.email}</div>
-                          <td className="mt-1 text-gray-600">{user.phone}</td>
+                          <div className="mt-1 text-gray-500">{user.email}</div>
+                          <td className="mt-1 text-gray-500">{user.phone}</td>
                         </div>
                       </div>
                     </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-600">{user.dateOfBirth}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-600">{user.school}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-600">{user.balance}</td>
-                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                    <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">{user.dateOfBirth}</td>
+                    <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">{user.school}</td>
+                    <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">{user.balance}</td>
+                    <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                       <button
-                        href="#"
+                        href="/"
                         className="inline-flex items-center text-zinc-500 hover:text-zinc-900 p-4"
                         aria-label={`View details of ${user.name}`}
                       >

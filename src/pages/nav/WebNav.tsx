@@ -75,13 +75,13 @@ export default function Navbar() {
             <ClipboardDocumentIcon/>
             <SidebarLabel>Missions</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/app/users">
-            <UserCircleIcon />
-            <SidebarLabel>Users</SidebarLabel>
-          </SidebarItem>
           <SidebarItem href="/app/manage_orders">
             <QueueListIcon />
             <SidebarLabel>Orders</SidebarLabel>
+          </SidebarItem>
+          <SidebarItem href="/app/users">
+            <UserCircleIcon />
+            <SidebarLabel>Users</SidebarLabel>
           </SidebarItem>
           <SidebarItem href="/app/products">
             <ArchiveBoxIcon />

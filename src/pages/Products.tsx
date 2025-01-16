@@ -67,10 +67,9 @@ const products = [
 
 export default function Products() {
     return (
-        <div class="min-h-screen w-full">
-
+        <div className="min-h-screen w-full">
             <div className="sm:flex sm:items-center">
-                <div className="sm:flex-auto">
+                <div className="sm:flex-auto px-4">
                     <Heading>Products</Heading>
                 </div>
                 <div className="flex w-full justify-end items-center py-2">
@@ -117,7 +116,7 @@ export default function Products() {
                             </div>
                             <thead className="border border-t-0 border-x-0">
                                 <tr>
-                                    <th scope="col" className="py-3 text-left text-medium font-semibold text-gray-900">
+                                    <th scope="col" className="py-3 px-4 text-left text-medium font-semibold text-gray-900">
                                         Product Name
                                     </th>
                                     <th scope="col" className="py-3 pl-4 pr-3 text-left text-medium font-semibold text-gray-900 sm:pl-0">
@@ -137,7 +136,7 @@ export default function Products() {
                                         key={product.name}
                                         className={index % 2 === 0 ? "bg-white" : "bg-zinc-50"}
                                     >
-                                        <td className="whitespace-nowrap py-1.5 text-sm text-gray-900">{product.name}</td>
+                                        <td className="whitespace-nowrap lg:px-4 py-1.5 text-sm text-gray-900">{product.name}</td>
                                         <td className="whitespace-nowrap py-1.5 text-sm text-gray-900">{product.description}</td>
                                         <td className="whitespace-nowrap py-1.5 text-sm text-gray-600">{product.price}</td>
                                         <td className="whitespace-nowrap py-1.5 text-sm text-gray-600">{product.stock}</td>
@@ -192,20 +191,20 @@ export default function Products() {
                                                     ))}
                                                 </div>
                                                 <button className="inline-flex items-center p-4 text-sm text-zinc-500 hover:text-zinc-900 font-lg">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        strokeWidth="2"
-                                                        stroke="currentColor"
-                                                        className="w-5 h-5 ml-2"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                                                        />
-                                                    </svg>
+                                                <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            stroke="currentColor"
+                            className="w-5 h-5 ml-2"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                          </svg>
                                                 </button>
                                             </div>
                                         </div>
