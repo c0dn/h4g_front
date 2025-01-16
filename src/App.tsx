@@ -1,4 +1,4 @@
-import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { AuthContextProvider } from "./UserContext.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -9,16 +9,16 @@ import DashboardRoot from "./pages/DashboardRoot.tsx";
 import DashboardHome from "./pages/DashboardHome.tsx";
 import Minimart from "./pages/Minimart.tsx";
 import Products from "./pages/Products.tsx";
-import Product from "./pages/Product.tsx";
-import Cart from "./pages/Cart.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import Orders from "./pages/Orders.tsx";
 import Users from "./pages/Users.tsx";
-import Auction from "./pages/Auction.tsx";
 import Support from "./pages/Support.tsx";
 import Profile from "./pages/Profile.tsx";
 import ChangePassword from "./pages/ChangePassword.tsx";
-import ResetPassword from "./pages/ResetPassword.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
+import ManageOrders from "./pages/ManageOrders.tsx";
+import Missions from "./pages/Missions.tsx";
+import Cart from "./pages/Cart.tsx";
 import IndexPage from "./pages/IndexPage.tsx";
 
 const queryClient = new QueryClient()
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "login",
-                element: <Login />,
+                element: <Login />
             },
             {
                 path: "change_password",
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "forgot_password",
-                element: <ResetPassword />
+                element: <ForgotPassword />
             },
             {
                 path: "app",
@@ -77,16 +77,16 @@ const router = createBrowserRouter([
                         element: <Products />
                     },
                     {
-                        path: "product",
-                        element: <Product />
-                    },
-                    {
                         path: "orders",
                         element: <Orders />
                     },
                     {
                         path: "users",
                         element: <Users />
+                    },
+                    {
+                        path: "manage_orders",
+                        element: <ManageOrders />
                     },
                     {
                         path: "cart",
@@ -97,16 +97,12 @@ const router = createBrowserRouter([
                         element: <Checkout />
                     },
                     {
-                        path: "auction",
-                        element: <Auction />
+                        path: "missions",
+                        element: <Missions />
                     },
                     {
                         path: "support",
                         element: <Support />
-                    },
-                    {
-                        path: "profile",
-                        element: <Profile />
                     },
                     {
                         path: "profile",

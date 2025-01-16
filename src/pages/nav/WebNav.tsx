@@ -18,14 +18,17 @@ import {
   DropdownMenu,
 } from '../../components/dropdown'
 import {
+  ArchiveBoxIcon,
   ArrowRightStartOnRectangleIcon,
   BuildingStorefrontIcon,
   ChevronUpIcon,
   ClipboardDocumentCheckIcon,
+  ClipboardDocumentIcon,
   Cog8ToothIcon,
   InboxIcon,
   LightBulbIcon,
   MagnifyingGlassIcon,
+  QueueListIcon,
   RectangleStackIcon,
   ShieldCheckIcon,
   ShoppingBagIcon,
@@ -62,35 +65,34 @@ export default function Navbar() {
             <ShoppingBagIcon />
             <SidebarLabel>Minimart</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/app/orders">
-            <ClipboardDocumentCheckIcon />
-            <SidebarLabel>Orders</SidebarLabel>
-          </SidebarItem>
           <SidebarItem href="/app/cart">
             <ShoppingCartIcon />
             <SidebarLabel>Cart</SidebarLabel>
           </SidebarItem>
-          {/* <SidebarItem href="/app/auction">
-            <BuildingStorefrontIcon />
-            <SidebarLabel>Auction</SidebarLabel>
-          </SidebarItem> */}
+          <SidebarItem href="/app/orders">
+            <ClipboardDocumentCheckIcon />
+            <SidebarLabel>Orders</SidebarLabel>
+          </SidebarItem>
+          <SidebarItem href="/app/missions">
+            <ClipboardDocumentIcon/>
+            <SidebarLabel>Missions</SidebarLabel>
+          </SidebarItem>
+          <SidebarItem href="/app/manage_orders">
+            <QueueListIcon />
+            <SidebarLabel>Orders</SidebarLabel>
+          </SidebarItem>
           <SidebarItem href="/app/users">
             <UserCircleIcon />
             <SidebarLabel>Users</SidebarLabel>
           </SidebarItem>
           <SidebarItem href="/app/products">
-            <RectangleStackIcon />
+            <ArchiveBoxIcon />
             <SidebarLabel>Products</SidebarLabel>
           </SidebarItem>
         </SidebarSection>
-        {/* Recent News */}
-        {/* <SidebarSection className="max-lg:hidden">
-          <SidebarHeading>Recent News</SidebarHeading>
-          <SidebarItem href="/app">Story 1</SidebarItem>
-          <SidebarItem href="/app">Story 2</SidebarItem>
-        </SidebarSection> */}
-        <SidebarSpacer />
+
         {/* Support */}
+        <SidebarSpacer />
         <SidebarSection>
           <SidebarItem href="/app/support">
             <QuestionMarkCircleIcon />

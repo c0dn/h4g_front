@@ -1,11 +1,4 @@
-import {Heading} from "../components/heading"
-import {useAuth} from "../hooks/useAuth.ts";
-import {baseAxiosClient} from "../libs/requestClient.ts";
-import {useMutation, useQuery} from "@tanstack/react-query";
-import {AxiosError} from "axios";
-import {useNavigate} from "react-router-dom";
-import {Strong, Text} from "../components/text.tsx";
-import {useState} from "react";
+import { Heading } from "../components/heading"
 
 /*const users = [
     {
@@ -111,7 +104,7 @@ import {useState} from "react";
 ];*/
 
 export default function Users() {
-    const {access_token, logout} = useAuth();
+  const {access_token, logout} = useAuth();
     const [errorText, setErrorText] = useState<string | null>(null);
 
     const navigate = useNavigate();
@@ -200,48 +193,78 @@ export default function Users() {
 
 
     return (
-        <div className="px-4 sm:px-6 lg:px-8">
+        <div >
             <div className="sm:flex sm:items-center">
-                <div className="sm:flex-auto">
+                <div className="sm:flex-autolg:px-4">
                     <Heading>Users</Heading>
                 </div>
-                <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                    <button
-                        type="button"
-                        className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                <div className="flex w-full justify-end items-center px-4 py-2">
+          <div className="flex relative w-1/5 bg-gray-100 rounded-lg mr-2">
+            <input
+              type="text"
+              placeholder="Search user..."
+              className="w-full bg-transparent py-1 pl-10 text-medium font-normal text-gray-900 focus:outline-none"
+            />
+                    <button>
+                        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute -left-0.5 top-1/2 transform -translate-y-1/2 h-5 w-5 ml-2 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-4.35-4.35m1.9-6.15a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+                    </div>
+          <div>
+            <Button
+              color="blue"
+              className="rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              href=""
                     >
-                        Add user
-                    </button>
+                        Add User...
+            </Button>
+          </div>
+
                 </div>
             </div>
-            <div className="mt-8 flow-root">
-                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                        <table className="min-w-full divide-y divide-gray-300">
-                            <thead>
+            <div className="mt-6 flow-root">
+                <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div className="inline-block min-w-full py-1 align-middle sm:px-6 lg:px-8">
+                        <table className="min-w-full ">
+              <div className="mb-2">
+              </div>
+                            <theadclassName="border border-t-0 border-x-0">
                             <tr>
-                                <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                <th scope="col" className="py-3 lg:px-4 text-left text-medium font-semibold text-gray-900">
                                     Resident ID
                                 </th>
                                 <th scope="col"
-                                    className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                                    className="py-3 pl-4 pr-3 text-left text-medium font-semibold text-gray-900 sm:pl-0">
                                     Name
                                 </th>
-                                <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                <th scope="col" className="px-3 py-3 text-left text-medium font-semibold text-gray-900">
                                     Date of Birth
                                 </th>
-                                <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                <th scope="col" className="px-3 py-3 text-left text-medium font-semibold text-gray-900">
                                     School
                                 </th>
-                                <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                <th scope="col" className="px-3 py-3 text-left text-medium font-semibold text-gray-900">
                                     Balance
                                 </th>
-                                <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                                <th scope="col" className="relative py-3 pl-3 pr-4 sm:pr-0">
                                     <span className="sr-only">View</span>
-                                </th>
+                                <i className="fas fa-arrow-right" aria-hidden="true"></i>
+                  </th>
                             </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-200 bg-white">
+                            <tbody className="divide-y divide-gray-200 px-2">
                             {usersReq.isError ? (
                                 <div className="flex items-center justify-center">
                                     <Text><Strong>Session expired or account disabled, restart the app!</Strong></Text>
@@ -252,10 +275,12 @@ export default function Users() {
                                         <p className="sm:text-sm/5 text-base/4 text-red-500">No users found</p>
                                     </div>
                                 ) : (
-                                    usersReq.data.map((user) => (
-                                        <tr key={user.uuid}>
-                                            <td className="whitespace-nowrap px-3 py-5 text-sm text-gray-900">{user.resident_id}</td>
-                                            <td className="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
+                                    usersReq.data.map((user, index) => (
+                                        <tr key={user.uuid}
+                                          className={index % 2 === 0 ? "bg-white" : "bg-zinc-50"}
+                  >
+                    <td className="whitespace-nowrap py-2 text-sm lg:px-4 text-gray-900">{user.resident_id}</td>
+                                            <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm sm:pl-0">
                                                 <div className="flex items-center">
                                                     <div className="size-11 shrink-0">
                                                         <img src="/src/img/profile-photo.jpg" alt=""
@@ -268,23 +293,97 @@ export default function Users() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="whitespace-nowrap px-3 py-5 text-sm text-gray-500">{user.dob}</td>
-                                            <td className="whitespace-nowrap px-3 py-5 text-sm text-gray-500">{user.school}</td>
-                                            <td className="whitespace-nowrap px-3 py-5 text-sm text-gray-500">{user.balance}</td>
-                                            <td className="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                    View<span className="sr-only">, {user.name}</span>
-                                                </a>
+                                            <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">{user.dob}</td>
+                                            <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">{user.school}</td>
+                                            <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">{user.balance}</td>
+                                            <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                                                <button
+                        href="/"
+                        className="inline-flex items-center text-zinc-500 hover:text-zinc-900 p-4"
+                                                    aria-label={`View details of ${user.name}`}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          className="w-5 h-5"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                        <span className="sr-only">{`, ${user.name}`}</span>
+                                                </button>
                                             </td>
                                         </tr>
                                     ))
                                 )
                             ) : null}
                             </tbody>
-                        </table>
+                        <tfoot>
+                <tr>
+                  <td colSpan="6" className=" py-3 text-sm text-gray-600">
+                    <div className="flex justify-between items-center">
+                      <p className="px-3.5">Showing 1 to 8 out of 20 results</p>
+                      <div className="flex items-center gap-2">
+                        <button className="inline-flex items-center p-4 text-sm text-zinc-500 hover:text-zinc-900 font-medium">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            stroke="currentColor"
+                            className="w-5 h-5 mr-2"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
+                          </svg>
+                        </button>
+                        <div className="flex items-center gap-1">
+                          {[1, 2, 3, "...", 5].map((page, index) => (
+                            <button
+                              key={index}
+                              className={`px-3 py-1.5 text-sm font-medium text-zinc-500 hover:text-white hover:bg-blue-600 rounded-md ${typeof page === "number" ? "cursor-pointer" : "cursor-default"
+                                }`}
+                              disabled={typeof page !== "number"}
+                            >
+                              {page}
+                            </button>
+                          ))}
+                        </div>
+                        <button className="inline-flex items-center p-4 text-sm text-zinc-500 hover:text-zinc-900 font-lg">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            stroke="currentColor"
+                            className="w-5 h-5 ml-2"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
                     </div>
                 </div>
             </div>
         </div>
-    )
+
+)
 }

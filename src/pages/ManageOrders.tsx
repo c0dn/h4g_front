@@ -1,26 +1,13 @@
 import { Heading } from '../components/heading'
 import { Divider } from '../components/divider'
-import { Badge } from '../components/badge'
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from '@headlessui/react'
-import { EllipsisVerticalIcon } from '@heroicons/react/24/outline'
-
-const statusColors = {
-  'Ready to Collect': 'green',
-  'Pending Approval': 'orange', 
-  'Collected': 'zinc'
-}
 
 const orders = [
   {
     number: 'WU88191111',
     datetime: '2021-01-22',
     total: '$104.00',
-    status: 'Ready to Collect', // Updated to order status
+    user: 'John Doe',
+    status: 'Approved', // Added status
     products: [
       {
         id: 1,
@@ -42,7 +29,8 @@ const orders = [
     number: 'WU88192222',
     datetime: '2021-02-15',
     total: '$130.00',
-    status: 'Collected', // Updated to order status
+    user: 'Jane Smith',
+    status: 'Rejected', // Added status
     products: [
       {
         id: 3,
@@ -64,7 +52,8 @@ const orders = [
     number: 'WU88193333',
     datetime: '2021-03-10',
     total: '$95.00',
-    status: 'Ready to Collect', // Updated to order status
+    user: 'Alice Johnson',
+    status: 'Waiting for Approval', // Added status
     products: [
       {
         id: 5,
@@ -82,15 +71,37 @@ const orders = [
       },
     ],
   },
+  {
+    number: 'WU88194444',
+    datetime: '2021-04-05',
+    total: '$85.00',
+    user: 'Michael Lee',
+    status: 'Waiting for Approval', // Added status
+    products: [
+      {
+        id: 7,
+        name: "Smart Fitness Tracker Watch",
+        price: '$45.00',
+        imageSrc: '/src/img/bottle.jpeg',
+        description: "A smart fitness tracker watch with health monitoring and activity tracking features."
+      },
+      {
+        id: 8,
+        name: "Adjustable Dumbbells Set",
+        price: '$40.00',
+        imageSrc: '/src/img/bottle.jpeg',
+        description: "A set of adjustable dumbbells perfect for strength training and home workouts."
+      },
+    ],
+  },
 ];
 
-
-export default function Orders() {
+export default function ManageOrders() {
   return (
     <div>
       <main>
         <div className="mx-auto max-w-7xl pb-2">
-          <Heading>My Orders</Heading>
+          <Heading>Orders</Heading>
         </div>
         <Divider></Divider>
 
@@ -116,61 +127,37 @@ export default function Orders() {
                         </dd>
                       </div>
                       <div>
-                        <dt className="font-medium text-gray-900">Status</dt>
-                        <dd className="mt-1">
-                          <Badge color={statusColors[order.status]}>
-                            {order.status}
-                          </Badge>
-                        </dd>
+                        <dt className="font-medium text-gray-900">User</dt>
+                        <dd className="mt-1 font-medium text-gray-500">{order.user}</dd>
                       </div>
                     </dl>
 
-                    <Menu as="div" className="relative flex justify-end lg:hidden">
-                      <div className="flex items-center">
-                        <MenuButton className="-m-2 flex items-center p-2 text-gray-400 hover:text-gray-500">
-                          <span className="sr-only">Options for order {order.number}</span>
-                          <EllipsisVerticalIcon aria-hidden="true" className="size-6" />
-                        </MenuButton>
-                      </div>
-
-                      <MenuItems
-                        transition
-                        className="absolute right-0 z-10 mt-2 w-40 origin-bottom-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-                      >
-                        <div className="py-1">
-                          <MenuItem>
-                            <a
-                              href=""
-                              className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
-                            >
-                              Order Collected
-                            </a>
-                          </MenuItem>
-                          <MenuItem>
-                            <a
-                              href=""
-                              className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
-                            >
-                              Invoice
-                            </a>
-                          </MenuItem>
-                        </div>
-                      </MenuItems>
-                    </Menu>
-
                     <div className="hidden lg:col-span-2 lg:flex lg:items-center lg:justify-end lg:space-x-4">
-                      <a
-                        href=""
-                        className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        <span>Order Collected</span>
-                      </a>
-                      <a
-                        href=""
-                        className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        <span>View Invoice</span>
-                      </a>
+                      {order.status === "Waiting for Approval" ? (
+                        <>
+                          <button
+                            type="button"
+                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                          >
+                            Approve
+                          </button>
+                          <button
+                            type="button"
+                            className="inline-flex items-center px-3 py-2 ml-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                          >
+                            Reject
+                          </button>
+                        </>
+                      ) : (
+                        <span
+                          className={`inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm ${order.status === "Approved"
+                              ? "text-white bg-green-400"
+                              : "text-white bg-red-400"
+                            }`}
+                        >
+                          {order.status}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -206,5 +193,3 @@ export default function Orders() {
     </div>
   )
 }
-
-

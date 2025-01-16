@@ -1,10 +1,3 @@
-import {useMemo, useState} from "react";
-import {useAuth} from "../hooks/useAuth.ts";
-import {useNavigate} from "react-router-dom";
-import {useMutation} from "@tanstack/react-query";
-import {baseAxiosClient} from "../libs/requestClient.ts";
-import {AxiosError} from "axios";
-
 export default function Login() {
     const [residentID, setResidentID] = useState("");
     const [password, setPassword] = useState("");
@@ -96,6 +89,36 @@ export default function Login() {
                                         />
                                     </div>
                                 </div>
+  return (
+    <>
+      <div className="flex min-h-full flex-1 h-screen">
+        <div className="flex flex-1 flex-col px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+          <div className="flex flex-col items-center mt-20">
+            <img
+              alt="Muhammadiyah Welfare Home"
+              src="/src/img/logo2.png"
+              className="h-35 w-auto mx-auto"
+            />
+          </div>
+          <div className="mt-5 mx-auto w-full h-full max-w-sm lg:w-96">
+            <h2 className="mb-5 text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+            <div>
+              <form action="#" method="POST" className="space-y-6">
+                <div>
+                  <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
+                    Email address
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    />
+                  </div>
+                </div>
 
                                 <div>
                                     <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">

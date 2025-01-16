@@ -39,8 +39,8 @@ export default function Profile() {
                 </div>
 
                 <div>
-                    <h2 className="text-base/7 font-semibold text-gray-900 lg:px-4">Credit Balance</h2>
-                    <p className="mt-1 text-sm/6 text-gray-500 lg:px-4">View your current credit balance</p>
+                    <h2 className="text-base/7 font-semibold text-gray-900 lg:px-4">Voucher Balance</h2>
+                    <p className="mt-1 text-sm/6 text-gray-500 lg:px-4">View your current voucher balance</p>
 
                     <dl className="mt-6 divide-y divide-gray-200 border border-gray-200 text-sm/6 bg-zinc-50 px-4 rounded-lg">
                         <div className="py-5 sm:flex">
