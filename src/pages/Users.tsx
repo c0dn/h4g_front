@@ -26,7 +26,7 @@ export default function Users() {
             <input
               type="text"
               placeholder="Search user..."
-              className="w-full bg-transparent py-2 pl-10 text-medium font-normal text-gray-900 focus:outline-none"
+              className="w-full bg-transparent py-1 pl-10 text-medium font-normal text-gray-900 focus:outline-none"
             />
             <button>
               <svg
