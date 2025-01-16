@@ -19,6 +19,8 @@ import ForgotPassword from "./pages/ForgotPassword.tsx";
 import ManageOrders from "./pages/ManageOrders.tsx";
 import Missions from "./pages/Missions.tsx";
 import Cart from "./pages/Cart.tsx";
+import IndexPage from "./pages/IndexPage.tsx";
+import Logout from "./pages/Logout.tsx";
 
 const queryClient = new QueryClient()
 
@@ -44,15 +46,23 @@ const router = createBrowserRouter([
         element: <Root />,
         children: [
             {
+                path: "",
+                element: <IndexPage/>
+            },
+            {
                 path: "login",
                 element: <Login />
             },
             {
-                path: "change_password",
+                path: "logout",
+                element: <Logout />
+            },
+            {
+                path: "change-password",
                 element: <ChangePassword />
             },
             {
-                path: "forgot_password",
+                path: "forgot-password",
                 element: <ForgotPassword />
             },
             {
@@ -76,7 +86,7 @@ const router = createBrowserRouter([
                         element: <Orders />
                     },
                     {
-                        path: "Users",
+                        path: "users",
                         element: <Users />
                     },
                     {

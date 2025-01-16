@@ -1,4 +1,67 @@
-export default function ChnagePassword() {
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { AxiosError } from "axios";
+import { baseAxiosClient } from "../libs/requestClient";
+import { useNavigate } from "react-router-dom";
+
+export default function ChangePassword() {
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errorText, setErrorText] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const sessionUid = localStorage.getItem("reset_session_uid");
+  const resetToken = localStorage.getItem("reset_token");
+
+  const finishPasswordReset = useMutation({
+    mutationFn: async () => {
+      if (!sessionUid || !resetToken) {
+        throw new Error("Missing session or token");
+      }
+      try {
+        await baseAxiosClient.post(
+          `/auth/password-reset/${sessionUid}?token=${resetToken}`,
+          {
+            password: newPassword,
+            confirm_password: confirmPassword,
+          }
+        );
+      } catch (err) {
+        if (err instanceof AxiosError) {
+          if (err.response?.status === 400) {
+            setErrorText("Invalid password format");
+          }
+        }
+        throw err;
+      }
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newPassword !== confirmPassword) {
+      setErrorText("Passwords do not match");
+      return;
+    }
+    setIsLoading(true);
+    setErrorText(null);
+
+    finishPasswordReset.mutate(undefined, {
+      onSuccess: () => {
+        setIsLoading(false);
+        // Clear stored reset data
+        localStorage.removeItem("reset_session_uid");
+        localStorage.removeItem("reset_token");
+        navigate("/login");
+      },
+      onError: () => {
+        setIsLoading(false);
+      },
+    });
+  };
   return (
     <>
       <div className="flex min-h-full flex-1 h-screen">
@@ -22,20 +85,23 @@ export default function ChnagePassword() {
               </div>
             </div>
             <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form action="#" method="POST" className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="email" className="block text-base font-medium text-gray-900">
+                  <label htmlFor="new-password" className="block text-base font-medium text-gray-900">
                     New Password
                   </label>
                   <div className="mb-4 relative">
                     <input
-                      type="password"
+                      type={showNewPassword ? "text" : "password"}
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
                       required
                       className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      id="password"
+                      id="new-password"
                     />
                     <button
                       type="button"
+                      onClick={() => setShowNewPassword(!showNewPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" className="size-6">
@@ -45,18 +111,21 @@ export default function ChnagePassword() {
 
                     </button>
                   </div>
-                  <label htmlFor="email" className="block text-base font-medium text-gray-900">
-                    Repeat New Password
+                  <label htmlFor="confirm-password" className="block text-base font-medium text-gray-900">
+                    Confirm New Password
                   </label>
                   <div className="mb-8 relative">
                     <input
-                      type="password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       required
                       className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      id="password"
+                      id="confirm-password"
                     />
                     <button
                       type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" className="size-6">
@@ -68,19 +137,24 @@ export default function ChnagePassword() {
                   </div>
                   <button
                     type="submit"
-                    className="mt-4 flex w-full justify-center rounded-md bg-blue-600  px-3 py-1.5 text-base font-normal text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    disabled={isLoading || !newPassword || !confirmPassword}
+                    className="mt-4 flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-base font-normal text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Confirm
                   </button>
                 </div>
               </form>
               <button
-                type="submit"
+                type="button"
+                onClick={() => navigate("/login")}
                 className="mt-2 mb-6 flex w-full justify-center border border-gray-200 rounded-md bg-white  px-3 py-1.5 text-base font-normal text-black shadow-sm hover:bg-zinc-100"
               >
                 Cancel
               </button>
-              <p className="text-center text-gray-500 font-normal text-xs ">By continuing, you confirm that such access complies with your account's security policy.</p>
+              {errorText && (
+                <p className="text-center text-sm text-red-600 mt-2">{errorText}</p>
+              )}
+              <p className="text-center text-gray-500 font-normal text-xs">By continuing, you confirm that such access complies with your account's security policy.</p>
             </div>
           </div>
         </div>
@@ -95,5 +169,3 @@ export default function ChnagePassword() {
     </>
   )
 }
-
-
