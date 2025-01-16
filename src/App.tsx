@@ -20,6 +20,7 @@ import ChangePassword from "./pages/ChangePassword.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
 import ManageOrders from "./pages/ManageOrders.tsx";
 import Missions from "./pages/Missions.tsx";
+import Cart from "./pages/Cart.tsx";
 
 const queryClient = new QueryClient()
 
@@ -73,10 +74,6 @@ const router = createBrowserRouter([
                         element: <Products />
                     },
                     {
-                        path: "product",
-                        element: <Product />
-                    },
-                    {
                         path: "orders",
                         element: <Orders />
                     },
@@ -87,6 +84,10 @@ const router = createBrowserRouter([
                     {
                         path: "manage_orders",
                         element: <ManageOrders />
+                    },
+                    {
+                        path: "cart",
+                        element: <Cart />
                     },
                     {
                         path: "checkout",

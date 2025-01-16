@@ -1,5 +1,6 @@
 import { Heading } from '../components/heading'
 import { Divider } from '../components/divider'
+import { Badge } from '../components/badge'
 import {
   Menu,
   MenuButton,
@@ -7,7 +8,12 @@ import {
   MenuItems,
 } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline'
-import { CheckCircleIcon } from '@heroicons/react/20/solid'
+
+const statusColors = {
+  'Ready to Collect': 'green',
+  'Pending Approval': 'orange', 
+  'Collected': 'zinc'
+}
 
 const orders = [
   {
@@ -111,7 +117,11 @@ export default function Orders() {
                       </div>
                       <div>
                         <dt className="font-medium text-gray-900">Status</dt>
-                        <dd className="mt-1 font-medium text-gray-500">{order.status}</dd>
+                        <dd className="mt-1">
+                          <Badge color={statusColors[order.status]}>
+                            {order.status}
+                          </Badge>
+                        </dd>
                       </div>
                     </dl>
 
@@ -184,6 +194,9 @@ export default function Orders() {
                       </li>
                     ))}
                   </ul>
+                  <div className="p-4 sm:p-6 bg-zinc-50">
+                    <p className="text-right text-sm font-medium text-gray-900">Total: {order.total}</p>
+                  </div>
                 </div>
               ))}
             </div>
