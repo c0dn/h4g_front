@@ -121,7 +121,7 @@ export default function Navbar() {
               <DropdownLabel>My profile</DropdownLabel>
             </DropdownItem>
             <DropdownDivider />
-            <DropdownItem href="/app">
+            <DropdownItem href="/logout">
               <ArrowRightStartOnRectangleIcon />
               <DropdownLabel>Sign out</DropdownLabel>
             </DropdownItem>
