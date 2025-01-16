@@ -1,5 +1,6 @@
 import { Heading } from "../components/heading"
 import { Button } from '../components/button'
+import { useState } from 'react'
 
 const products = [
     {
@@ -66,6 +67,12 @@ const products = [
 
 
 export default function Products() {
+    const [searchQuery, setSearchQuery] = useState('')
+    
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     return (
         <div className="min-h-screen w-full">
             <div className="sm:flex sm:items-center">
@@ -78,6 +85,8 @@ export default function Products() {
                             type="text"
                             placeholder="Search product..."
                             className="w-full bg-transparent py-1 pl-10 text-medium font-normal text-gray-900 focus:outline-none"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
                         />
                         <button>
                             <svg
@@ -100,7 +109,6 @@ export default function Products() {
                         <Button
                             color="blue"
                             className="rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                            href=""
                         >
                             Add Product...
                         </Button>
@@ -131,7 +139,14 @@ export default function Products() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-200 px-2">
-                                {products.map((product, index) => (
+                                {filteredProducts.length === 0 ? (
+                                    <tr>
+                                        <td colSpan={5} className="py-4 text-center text-sm text-gray-500">
+                                            No products matching your search query
+                                        </td>
+                                    </tr>
+                                ) : (
+                                    filteredProducts.map((product, index) => (
                                     <tr
                                         key={product.name}
                                         className={index % 2 === 0 ? "bg-white" : "bg-zinc-50"}
@@ -142,23 +157,24 @@ export default function Products() {
                                         <td className="whitespace-nowrap py-1.5 text-sm text-gray-600">{product.stock}</td>
                                         <td className="relative whitespace-nowrap py-1.5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                                             <button
-                                                href="#"
                                                 className="inline-flex items-center text-zinc-500 hover:text-zinc-900 p-4"
                                                 aria-label={`View details of ${product.name}`}
+                                                onClick={() => {}}
                                             >
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                                                 </svg>
 
                                                 <span className="sr-only">{`, ${product.name}`}</span>
                                             </button>
                                         </td>
                                     </tr>
-                                ))}
+                                ))
+                                )}
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colSpan="6" className=" py-3 text-sm text-gray-600">
+                                    <td colSpan={6} className="py-3 text-sm text-gray-600">
                                         <div className="flex justify-between items-center">
                                             <p>Showing 1 to 8 out of 20 results</p>
                                             <div className="flex items-center gap-2">
