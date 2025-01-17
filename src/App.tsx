@@ -58,6 +58,10 @@ const router = createBrowserRouter([
                 element: <Logout />
             },
             {
+                path: "reset-password",
+                element: <ResetPassword />
+            },
+            {
                 path: "change-password",
                 element: <ChangePassword />
             },
