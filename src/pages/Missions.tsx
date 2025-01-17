@@ -13,8 +13,8 @@ type Mission = {
 const missions: Mission[] = [
   {
     id: 1,
-    name: "Grade B to C",
-    description: "Improve your grade from B to C",
+    name: "Grade C to B",
+    description: "Improve your grade from C to B",
     points: 50,
     status: 0,
   },
