@@ -1,6 +1,16 @@
 import { Heading } from "../components/heading"
 import { Button } from '../components/button'
 import { useState } from 'react'
+import ZipToteImg from '../img/Zip_Tote_Basket.png'
+import BottleImg from '../img/bottle.jpeg'
+import CoffeeMugImg from '../img/Coffee Mug.png'
+import NotebookImg from '../img/Notebook.png'
+import PenImg from '../img/Pen.png'
+import BackpackImg from '../img/Backpack.png'
+import SunglassesImg from '../img/Sunglasses.png'
+import HatImg from '../img/Hat.png'
+import ShoesImg from '../img/Shoes.png'
+import WatchImg from '../img/Watch_backgr(1).png'
 import { Dialog, DialogBackdrop, DialogPanel, Radio, RadioGroup } from '@headlessui/react'
 import { Field, Label } from '../components/fieldset'
 import { Input } from '../components/input'
@@ -13,7 +23,7 @@ const products = [
         name: 'Zip Tote Basket',
         description: 'A stylish zip tote bag made of white canvas with black straps and handle.',
         href: '#',
-        imageSrc: '/src/img/Zip_Tote_Basket.png',
+        imageSrc: ZipToteImg,
         imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
         price: '$140',
         stock: 85,
@@ -23,7 +33,7 @@ const products = [
         name: 'Water Bottle',
         description: 'A durable blue water bottle perfect for staying hydrated on the go.',
         href: '#',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         imageAlt: 'Blue water bottle.',
         price: '$20',
         stock: 72,
@@ -33,7 +43,7 @@ const products = [
         name: 'Coffee Mug',
         description: 'A sleek black coffee mug for your favorite hot beverages.',
         href: '#',
-        imageSrc: '/src/img/Coffee Mug.png',
+        imageSrc: CoffeeMugImg,
         imageAlt: 'Black coffee mug.',
         price: '$15',
         stock: 40,
@@ -43,7 +53,7 @@ const products = [
         name: 'Notebook',
         description: 'A premium brown notebook ideal for journaling and note-taking.',
         href: '#',
-        imageSrc: '/src/img/Notebook.png',
+        imageSrc: NotebookImg,
         imageAlt: 'Brown notebook.',
         price: '$10',
         stock: 90,
@@ -53,7 +63,7 @@ const products = [
         name: 'Pen',
         description: 'A high-quality red pen with smooth ink flow for writing.',
         href: '#',
-        imageSrc: '/src/img/Pen.png',
+        imageSrc: PenImg,
         imageAlt: 'Red pen.',
         price: '$5',
         stock: 65,
@@ -63,7 +73,7 @@ const products = [
         name: 'Backpack',
         description: 'A spacious green backpack with multiple compartments for travel and daily use.',
         href: '#',
-        imageSrc: '/src/img/Backpack.png',
+        imageSrc: BackpackImg,
         imageAlt: 'Green backpack.',
         price: '$50',
         stock: 77,
@@ -73,7 +83,7 @@ const products = [
         name: 'Sunglasses',
         description: 'Stylish black sunglasses with UV protection for outdoor activities.',
         href: '#',
-        imageSrc: '/src/img/Sunglasses.png',
+        imageSrc: SunglassesImg,
         imageAlt: 'Black sunglasses.',
         price: '$25',
         stock: 58,
@@ -83,7 +93,7 @@ const products = [
         name: 'Hat',
         description: 'A comfortable and breathable white hat for sunny days.',
         href: '#',
-        imageSrc: '/src/img/Hat.png',
+        imageSrc: HatImg,
         imageAlt: 'White hat.',
         price: '$30',
         stock: 33,
@@ -93,7 +103,7 @@ const products = [
         name: 'Shoes',
         description: 'A pair of gray shoes designed for comfort and durability.',
         href: '#',
-        imageSrc: '/src/img/Shoes.png',
+        imageSrc: ShoesImg,
         imageAlt: 'Gray shoes.',
         price: '$60',
         stock: 49,
@@ -103,7 +113,7 @@ const products = [
         name: 'Watch',
         description: 'A sleek silver watch with a modern design and reliable performance.',
         href: '#',
-        imageSrc: '/src/img/Watch_backgr(1).png',
+        imageSrc: WatchImg,
         imageAlt: 'Silver watch.',
         price: '$100',
         stock: 92,
@@ -114,7 +124,19 @@ const products = [
 export default function Products() {
     const [searchQuery, setSearchQuery] = useState('')
     let [isOpen, setIsOpen] = useState(false)
-    const [selectedProduct, setSelectedProduct] = useState(null);
+    
+    type Product = {
+        id: number;
+        name: string;
+        description: string;
+        href: string;
+        imageSrc: string;
+        imageAlt: string;
+        price: string;
+        stock: number;
+    }
+    
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
     
     const filteredProducts = products.filter(product =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||

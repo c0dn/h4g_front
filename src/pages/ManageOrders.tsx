@@ -1,5 +1,6 @@
 import { Heading } from '../components/heading'
 import { Divider } from '../components/divider'
+import BottleImg from '../img/bottle.jpeg'
 
 const orders = [
   {
@@ -13,14 +14,14 @@ const orders = [
         id: 1,
         name: "Men's 3D Glasses Artwork Tee",
         price: '$36.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A stylish 3D glasses artwork design printed on a high-quality tee for a unique look."
       },
       {
         id: 2,
         name: "Women's Casual Striped Shirt",
         price: '$68.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A comfortable and casual striped shirt perfect for everyday wear, made with soft fabric."
       },
     ],
@@ -36,14 +37,14 @@ const orders = [
         id: 3,
         name: "Unisex Pullover Hoodie",
         price: '$70.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A warm and cozy pullover hoodie designed for both men and women, perfect for chilly days."
       },
       {
         id: 4,
         name: "Classic Baseball Cap",
         price: '$60.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A classic, adjustable baseball cap with a timeless design that complements any casual outfit."
       },
     ],
@@ -59,14 +60,14 @@ const orders = [
         id: 5,
         name: "Men's Athletic Running Shoes",
         price: '$55.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "Men's athletic running shoes designed for maximum comfort and support during workouts or daily use."
       },
       {
         id: 6,
         name: "Wireless Earbuds",
         price: '$40.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "High-quality wireless earbuds that provide excellent sound and a comfortable fit for all-day use."
       },
     ],
@@ -82,14 +83,14 @@ const orders = [
         id: 7,
         name: "Smart Fitness Tracker Watch",
         price: '$45.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A smart fitness tracker watch with health monitoring and activity tracking features."
       },
       {
         id: 8,
         name: "Adjustable Dumbbells Set",
         price: '$40.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A set of adjustable dumbbells perfect for strength training and home workouts."
       },
     ],

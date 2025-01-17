@@ -1,5 +1,7 @@
 import { Heading } from '../components/heading'
 import { Divider } from '../components/divider'
+import ProductImg1 from '../img/Pen.png'
+import ProductImg2 from '../img/Shoes.png'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { CheckIcon, ClockIcon } from '@heroicons/react/20/solid'
 import { Description } from '../components/fieldset'
@@ -12,7 +14,7 @@ const products = [
         price: '$35.00',
         description: "Compact case to organize pencils, pens, and other stationery.",
         inStock: true,
-        imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-01-product-03.jpg',
+        imageSrc: ProductImg1,
         imageAlt: 'Insulated bottle with white base and black snap lid.',
     },
     {
@@ -22,7 +24,7 @@ const products = [
         description: 'Smooth-writing ballpoint pen, pack of 5',
         inStock: false,
         size: 'Large',
-        imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-01-product-01.jpg',
+        imageSrc: ProductImg2,
         imageAlt: "Front of men's Basic Tee in sienna.",
     },
 ]

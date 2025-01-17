@@ -1,4 +1,8 @@
 import { Heading } from '../components/heading'
+import HatImg from '../img/Hat.png'
+import BottleImg from '../img/bottle.jpeg'
+import PenImg from '../img/Pen.png'
+import ShoesImg from '../img/Shoes.png'
 
 type Mission = {
     id: number;
@@ -50,28 +54,28 @@ const products = [
     {
         id: 1,
         name: "Hat",
-        image: "./src/img/Hat.png",
+        image: HatImg,
         price: 19.99,
         available: 10,
     },
     {
         id: 2,
         name: "Bottle",
-        image: "./src/img/bottle.jpeg",
+        image: BottleImg,
         price: 29.99,
         available: 5,
     },
     {
         id: 3,
         name: "Hat",
-        image: "./src/img/Hat.png",
+        image: HatImg,
         price: 19.99,
         available: 10,
     },
     {
         id: 4,
         name: "Bottle",
-        image: "./src/img/bottle.jpeg",
+        image: BottleImg,
         price: 29.99,
         available: 5,
     },
@@ -80,7 +84,7 @@ const products = [
 const orders = [
     {
         id: 1,
-        image: "./src/img/Pen.png",
+        image: PenImg,
         name: "Pen",
         description: "Blue color pen",
         amountPaid: "$2.50",
@@ -90,7 +94,7 @@ const orders = [
     },
     {
         id: 2,
-        image: "./src/img/Shoes.png",
+        image: ShoesImg,
         name: "Shoes",
         description: "Shoes",
         amountPaid: "$25.00",

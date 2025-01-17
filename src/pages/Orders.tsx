@@ -1,5 +1,6 @@
 import { Heading } from '../components/heading'
 import { Divider } from '../components/divider'
+import BottleImg from '../img/bottle.jpeg'
 import { Badge } from '../components/badge'
 import {
   Menu,
@@ -9,13 +10,33 @@ import {
 } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline'
 
-const statusColors = {
+type BadgeColor = 'green' | 'orange' | 'zinc' | 'red' | 'amber' | 'yellow' | 'lime' | 'emerald' | 'teal' | 'cyan' | 'sky' | 'blue' | 'indigo' | 'violet' | 'purple' | 'fuchsia' | 'pink' | 'rose';
+
+type OrderStatus = 'Ready to Collect' | 'Pending Approval' | 'Collected';
+
+const statusColors: Record<OrderStatus, BadgeColor> = {
   'Ready to Collect': 'green',
   'Pending Approval': 'orange', 
   'Collected': 'zinc'
 }
 
-const orders = [
+type Product = {
+  id: number;
+  name: string;
+  price: string;
+  imageSrc: string;
+  description: string;
+}
+
+type Order = {
+  number: string;
+  datetime: string;
+  total: string;
+  status: OrderStatus;
+  products: Product[];
+}
+
+const orders: Order[] = [
   {
     number: 'WU88191111',
     datetime: '2021-01-22',
@@ -26,14 +47,14 @@ const orders = [
         id: 1,
         name: "Men's 3D Glasses Artwork Tee",
         price: '$36.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A stylish 3D glasses artwork design printed on a high-quality tee for a unique look."
       },
       {
         id: 2,
         name: "Women's Casual Striped Shirt",
         price: '$68.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A comfortable and casual striped shirt perfect for everyday wear, made with soft fabric."
       },
     ],
@@ -48,14 +69,14 @@ const orders = [
         id: 3,
         name: "Unisex Pullover Hoodie",
         price: '$70.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A warm and cozy pullover hoodie designed for both men and women, perfect for chilly days."
       },
       {
         id: 4,
         name: "Classic Baseball Cap",
         price: '$60.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "A classic, adjustable baseball cap with a timeless design that complements any casual outfit."
       },
     ],
@@ -70,14 +91,14 @@ const orders = [
         id: 5,
         name: "Men's Athletic Running Shoes",
         price: '$55.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "Men's athletic running shoes designed for maximum comfort and support during workouts or daily use."
       },
       {
         id: 6,
         name: "Wireless Earbuds",
         price: '$40.00',
-        imageSrc: '/src/img/bottle.jpeg',
+        imageSrc: BottleImg,
         description: "High-quality wireless earbuds that provide excellent sound and a comfortable fit for all-day use."
       },
     ],
@@ -206,5 +227,3 @@ export default function Orders() {
     </div>
   )
 }
-
-
