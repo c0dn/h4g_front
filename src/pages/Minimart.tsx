@@ -5,94 +5,105 @@ const products = [
   {
     id: 1,
     name: 'Zip Tote Basket',
-    color: 'White and black',
+    description: 'A stylish zip tote bag made of white canvas with black straps and handle.',
     href: '#',
     imageSrc: '/src/img/Zip_Tote_Basket.png',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: '$140',
+    stock: 85,
   },
   {
     id: 2,
     name: 'Water Bottle',
-    color: 'Blue',
+    description: 'A durable blue water bottle perfect for staying hydrated on the go.',
     href: '#',
     imageSrc: '/src/img/bottle.jpeg',
     imageAlt: 'Blue water bottle.',
     price: '$20',
+    stock: 72,
   },
   {
     id: 3,
     name: 'Coffee Mug',
-    color: 'Black',
+    description: 'A sleek black coffee mug for your favorite hot beverages.',
     href: '#',
     imageSrc: '/src/img/Coffee Mug.png',
     imageAlt: 'Black coffee mug.',
     price: '$15',
+    stock: 40,
   },
   {
     id: 4,
     name: 'Notebook',
-    color: 'Brown',
+    description: 'A premium brown notebook ideal for journaling and note-taking.',
     href: '#',
     imageSrc: '/src/img/Notebook.png',
     imageAlt: 'Brown notebook.',
     price: '$10',
+    stock: 90,
   },
   {
     id: 5,
     name: 'Pen',
-    color: 'Red',
+    description: 'A high-quality red pen with smooth ink flow for writing.',
     href: '#',
     imageSrc: '/src/img/Pen.png',
     imageAlt: 'Red pen.',
     price: '$5',
+    stock: 65,
   },
   {
     id: 6,
     name: 'Backpack',
-    color: 'Green',
+    description: 'A spacious green backpack with multiple compartments for travel and daily use.',
     href: '#',
     imageSrc: '/src/img/Backpack.png',
     imageAlt: 'Green backpack.',
     price: '$50',
+    stock: 77,
   },
   {
     id: 7,
     name: 'Sunglasses',
-    color: 'Black',
+    description: 'Stylish black sunglasses with UV protection for outdoor activities.',
     href: '#',
     imageSrc: '/src/img/Sunglasses.png',
     imageAlt: 'Black sunglasses.',
     price: '$25',
+    stock: 58,
   },
   {
     id: 8,
     name: 'Hat',
-    color: 'White',
+    description: 'A comfortable and breathable white hat for sunny days.',
     href: '#',
     imageSrc: '/src/img/Hat.png',
     imageAlt: 'White hat.',
     price: '$30',
+    stock: 33,
   },
   {
     id: 9,
     name: 'Shoes',
-    color: 'Gray',
+    description: 'A pair of gray shoes designed for comfort and durability.',
     href: '#',
     imageSrc: '/src/img/Shoes.png',
     imageAlt: 'Gray shoes.',
     price: '$60',
+    stock: 49,
   },
   {
     id: 10,
     name: 'Watch',
-    color: 'Silver',
+    description: 'A sleek silver watch with a modern design and reliable performance.',
     href: '#',
     imageSrc: '/src/img/Watch_backgr(1).png',
     imageAlt: 'Silver watch.',
     price: '$100',
+    stock: 92,
   },
-]
+];
+
 
 export default function Minimart() {
   return (
@@ -127,7 +138,7 @@ export default function Minimart() {
                 </div>
                 <div className="relative mt-4">
                   <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                  <p className="mt-1 text-sm text-gray-500">{product.description}</p>
                 </div>
                 <div className="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">
                   <div

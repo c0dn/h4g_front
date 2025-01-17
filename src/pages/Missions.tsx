@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Heading } from "../components/heading";
+import { Divider } from "../components/divider";
 
 type Mission = {
   id: number;
@@ -141,10 +142,8 @@ export default function Missions() {
     <div>
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto lg:px-4">
-          <Heading>Missions</Heading>
-          <p className="mt-2 text-md text-gray-700">
-            Here is the list of missions. Complete missions to earn your points!
-          </p>
+          <Heading className="pb-2">Missions</Heading>
+          <Divider />
         </div>
       </div>
 
