@@ -5,9 +5,11 @@
 This project aimed to develop a secure web-based Minimart and Voucher System developed for the Muhammadiyah Welfare Home (MWH). It aims to empower residents and streamline operations by providing a user-friendly platform for managing vouchers, product requests, and inventory tracking. 
 
 ### User
-- **User Dashboard**: View voucher balances and transaction history.
-- **Shop**: Browse available products and add to cart.
-- **Order Management**: Track order status and order history
+- **User Dashboard**: View voucher balances, transaction history and available products.
+- **Minimart**: Browse available products and add to cart.
+- **Cart**: Cart and checkout
+- **Orders**: Track order status and order history
+- **Missions**: View available missions for completion to claim voucher points
 - **Settings**: Update profile details, including email and phone number.
   
 ### Admin
