@@ -107,10 +107,11 @@ export default function DashboardHome() {
             <Heading>Home</Heading>
             <div className='h-screen w-full mt-2'>
                 <div className='grid grid-cols-5 gap-4 h-full grid-rows-10'>
-                    <div className='border rounded-md col-span-2 row-span-1 p-2 bg-green-50'>
-                        <p className='font-bold mb-2 text-lg italic'>Welcome back, User XXX</p>
-                        <p className='text-base'>Your remain voucher balance: <span className='text-blue-600'>1994.20</span></p>
-                    </div>
+                <div className='border rounded-md col-span-2 row-span-1 p-2 bg-green-50'>
+    <p className='font-bold mb-1 text-lg italic leading-tight'>Welcome back, User XXX</p>
+    <p className='text-base leading-tight'>Your remaining voucher balance: <span className='text-blue-600'>1994.20</span></p>
+</div>
+
                     <div className='border rounded-md col-span-3 row-span-4 col-start-3 bg-blue-50 px-4 py-2 overflow-y-auto'>
                         <p className='text-lg font-semibold italic mb-2'>Order history</p>
                         {orders.map((order) => (
