@@ -57,38 +57,51 @@ export default function Navbar() {
       <SidebarBody>
         {/* Main Navigations */}
         <SidebarSection>
+          {/* Dashboard - Visible to All */}
           <SidebarItem href="/app">
             <HomeIcon />
             <SidebarLabel>Dashboard</SidebarLabel>
           </SidebarItem>
-          <SidebarItem href="/app/minimart">
-            <ShoppingBagIcon />
-            <SidebarLabel>Minimart</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/app/cart">
-            <ShoppingCartIcon />
-            <SidebarLabel>Cart</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/app/orders">
-            <ClipboardDocumentCheckIcon />
-            <SidebarLabel>Orders</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/app/missions">
-            <ClipboardDocumentIcon/>
-            <SidebarLabel>Missions</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/app/manage_orders">
-            <QueueListIcon />
-            <SidebarLabel>Orders</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/app/users">
-            <UserCircleIcon />
-            <SidebarLabel>Users</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/app/products">
-            <ArchiveBoxIcon />
-            <SidebarLabel>Products</SidebarLabel>
-          </SidebarItem>
+
+          {/* User Only Navigation Items */}
+          {user?.role !== 'Admin' && (
+            <>
+              <SidebarItem href="/app/minimart">
+                <ShoppingBagIcon />
+                <SidebarLabel>Minimart</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/app/cart">
+                <ShoppingCartIcon />
+                <SidebarLabel>Cart</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/app/orders">
+                <ClipboardDocumentCheckIcon />
+                <SidebarLabel>Orders</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/app/missions">
+                <ClipboardDocumentIcon/>
+                <SidebarLabel>Missions</SidebarLabel>
+              </SidebarItem>
+            </>
+          )}
+
+          {/* Admin Only Navigation Items */}
+          {user?.role === 'Admin' && (
+            <>
+              <SidebarItem href="/app/manage_orders">
+                <QueueListIcon />
+                <SidebarLabel>Manage Orders</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/app/users">
+                <UserCircleIcon />
+                <SidebarLabel>Users</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/app/products">
+                <ArchiveBoxIcon />
+                <SidebarLabel>Products</SidebarLabel>
+              </SidebarItem>
+            </>
+          )}
         </SidebarSection>
 
         {/* Support */}
