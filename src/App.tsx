@@ -21,6 +21,7 @@ import Missions from "./pages/Missions.tsx";
 import Cart from "./pages/Cart.tsx";
 import IndexPage from "./pages/IndexPage.tsx";
 import Logout from "./pages/Logout.tsx";
+import ResetPassword from "./pages/ResetPassword.tsx";
 
 const queryClient = new QueryClient()
 
