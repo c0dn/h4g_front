@@ -7,6 +7,7 @@ import {Button} from '../components/button'
 import {useMemo, useState} from "react";
 import {baseAxiosClient} from "../libs/requestClient";
 import {Strong, Text} from "../components/text.tsx";
+import profilePhoto from "../img/profile-photo.jpg";
 
 export default function Users() {
     const {access_token, logout} = useAuth();
@@ -161,7 +162,7 @@ export default function Users() {
                                                     <div className="flex items-center">
                                                         <div className="size-11 shrink-0">
                                                             <img
-                                                                src="/src/img/profile-photo.jpg"
+                                                                src={profilePhoto}
                                                                 alt=""
                                                                 className="size-11 rounded-full"
                                                             />

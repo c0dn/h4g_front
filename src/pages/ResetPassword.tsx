@@ -3,6 +3,8 @@ import {useMutation} from "@tanstack/react-query";
 import {baseAxiosClient} from "../libs/requestClient.ts";
 import {AxiosError} from "axios";
 import {useNavigate} from "react-router-dom";
+import logo2 from "../img/logo2.png";
+import mwh2 from "../img/mwh2.jpeg";
 
 export default function ResetPassword() {
   const [otp, setOtp] = useState("");
@@ -60,7 +62,7 @@ export default function ResetPassword() {
           <div className="flex mt-5 h-full flex-col justify-center px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <img
-                src="/src/img/logo2.png"
+                src={logo2}
                 alt="Logo"
                 className="mx-auto"
               />
@@ -114,7 +116,7 @@ export default function ResetPassword() {
         <div className="relative w-0 flex-1 hidden lg:block" style={{ flex: 0.7 }}>
           <img
             alt=""
-            src="/src/img/mwh2.jpeg?auto=format&fit=crop&w=1908&q=80"
+            src={mwh2}
             className="absolute inset-0 size-full object-cover"
           />
         </div>

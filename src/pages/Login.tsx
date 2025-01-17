@@ -4,6 +4,8 @@ import {baseAxiosClient} from "../libs/requestClient.ts";
 import {useMutation} from "@tanstack/react-query";
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../hooks/useAuth.ts";
+import logo2 from "../img/logo2.png";
+import mwh from "../img/mwh.jpg";
 
 export default function Login() {
     const [residentID, setResidentID] = useState("");
@@ -66,7 +68,7 @@ export default function Login() {
           <div className="flex flex-col items-center mt-20">
             <img
               alt="Muhammadiyah Welfare Home"
-              src="/src/img/logo2.png"
+              src={logo2}
               className="h-35 w-auto mx-auto"
             />
           </div>
@@ -133,7 +135,7 @@ export default function Login() {
             <div className="relative hidden w-0 flex-1 lg:block">
                 <img
                     alt=""
-                    src="/src/img/mwh.jpg?auto=format&fit=crop&w=1908&q=80"
+                    src={mwh}
                     className="absolute inset-0 size-full object-cover"
                 />
             </div>

@@ -15,6 +15,7 @@ import {
     ShieldCheckIcon,
     UserIcon,
   } from '@heroicons/react/16/solid'
+import profilePhoto from "../../img/profile-photo.jpg"
   import {
     InboxIcon,
     MagnifyingGlassIcon,
@@ -31,7 +32,7 @@ export default function MobNav() {
             </NavbarItem> */}
             <Dropdown>
               <DropdownButton as={NavbarItem}>
-                <Avatar src="/profile-photo.jpg" square />
+                <Avatar src={profilePhoto} square />
               </DropdownButton>
               <DropdownMenu className="min-w-64" anchor="bottom end">
                 <DropdownItem href="/profile">

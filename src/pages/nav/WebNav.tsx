@@ -34,6 +34,8 @@ import {
   QuestionMarkCircleIcon,
 } from '@heroicons/react/20/solid'
 import {useAuth} from "../../hooks/useAuth.ts";
+import logo from "../../img/logo.png";
+import profilePhoto from "../../img/profile-photo.jpg";
 
 export default function Navbar() {
 
@@ -43,7 +45,7 @@ export default function Navbar() {
     <Sidebar>
       <SidebarHeader>
         <SidebarItem>
-          <Avatar src="/src/img/logo.png" />
+          <Avatar src={logo} />
           <SidebarLabel>MWH-Minimart</SidebarLabel>
         </SidebarItem>
       </SidebarHeader>
@@ -111,7 +113,7 @@ export default function Navbar() {
         <Dropdown>
           <DropdownButton as={SidebarItem}>
             <span className="flex min-w-0 items-center gap-3">
-              <Avatar src="/src/img/profile-photo.jpg" className="size-10" square alt="" />
+              <Avatar src={profilePhoto} className="size-10" square alt="" />
               <span className="min-w-0">
                 <span className="block truncate text-sm/5 font-medium text-zinc-950">{user?.name}</span>
                 <span className="block truncate text-xs/5 font-normal text-zinc-500">
